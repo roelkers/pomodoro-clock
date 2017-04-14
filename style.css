@@ -1,0 +1,159 @@
+body {
+  background-color: #FF8282;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 65px;
+  font-family: Amatic SC;
+  color: #651313;
+}
+
+#timeLabel {
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: Amatic SC;
+  color: #651313;
+  margin: 0px;
+}
+
+p {
+  color: #651313;
+  font-family: Amatic SC;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  margin-bottom: 1em;
+}
+
+.session {
+  background-color: #FFA7A7;
+  border: 1px solid black;
+  font-size: 20px;
+  margin-right: 40px;
+}
+
+.break {
+  background-color: #FFA7A7;
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapper {
+  position: absolute;
+  width: 16em;
+  height: 16em;
+  left: calc(50% - 4em);
+}
+
+.wrapper::after {
+  content: "";
+  background-color: #FF8282;
+  border-radius: 50%;
+  width: 12em;
+  height: 12em;
+  position: absolute;
+  top: 2em;
+  left: -2em;
+}
+
+.dial-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 8em;
+}
+
+.wedge {
+  height: 16em;
+  width: 8em;
+}
+
+.container1 {
+  left: 4em;
+}
+
+.container1 .wedge {
+  animation-play-state: paused;
+  animation: rotate-bg-1 0s infinite linear;
+  border-radius: 0 8em 8em 0;
+  left: 0;
+  transform-origin: 0 50%;
+}
+
+.container2 {
+  left: -4em;
+}
+
+.container2 .wedge {
+  animation-play-state: paused;
+  animation: rotate-bg-2 0s infinite linear;
+  border-radius: 8em 0 0 8em;
+  transform-origin: 8em 8em;
+}
+
+
+/* First animation moves 180 degrees in the first 2 seconds */
+
+@keyframes rotate-bg-1 {
+  50%,
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
+
+/* Second animation moves 180 degrees in the last 2 seconds */
+
+@keyframes rotate-bg-2 {
+  0%,
+  50% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
+.paused {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.running {
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -o-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.sessionColor {
+  background: #FF3D00;
+}
+
+.breakColor {
+  background: #4CAF50;
+}
