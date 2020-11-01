@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/index.js',
-    print: './src/print.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -19,6 +18,17 @@ module.exports = {
       template: 'index.html'
     })
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](jquery)[\\/]/,
+          name: 'jquery',
+          chunks: 'all',
+        }
+      }
+    },
+  },
   module: {
     rules: [
       {
@@ -31,13 +41,12 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          { 
-        
-          loader: 'file-loader',
-          options: {
-          esModule: false
-          }
-        } ]
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false
+            }
+          }]
       }
     ]
   }

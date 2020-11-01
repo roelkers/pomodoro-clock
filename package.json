@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Pomodoro Clock =================",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack serve --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,9 @@
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.3.2",
-    "webpack-cli": "^4.1.0"
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.3.0"
   },
   "dependencies": {
     "jquery": "^3.1.1"

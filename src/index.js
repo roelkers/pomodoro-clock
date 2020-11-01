@@ -1,18 +1,12 @@
 import $ from 'jquery'
 import './style.css'
-import printMe from './print.js';
+import print from './print'
 
 var paused = false;
 var stopped = true;
 var breakNext = false;
 var intervalID = null;
 var counter = null;
-
-const element = document.querySelector('h1')
-const btn = document.createElement('button');
-btn.innerHTML = 'Click me and check the console!';
-btn.onclick = printMe;
-element.appendChild(btn);
 
 const setAnimationDuration = () => {
 
@@ -111,6 +105,7 @@ const pauseTimer = () => {
 }
 
 $("#pomodoro").on("click", () => {
+  print()
   if (stopped)
     if (!breakNext)
       startSessionTimer();
@@ -150,3 +145,9 @@ $("#decBreak").on("click", () => {
     $("#breakDuration").html(dur - 1);
 })
 
+// if (module.hot) {
+//   module.hot.accept('./print.js', function () {
+//     console.log('Accepting the updated printMe module!');
+//     print();
+//   })
+// }
